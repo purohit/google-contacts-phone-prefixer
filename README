@@ -15,7 +15,8 @@ Then, run the script:
     ./google-contacts-phone-prefixer google-utf8.csv > google-utf8-new.csv
 
 And voilà, google-utf8-new.csv now has all of your contacts who have American
-phone numbers with the +1 prefix.
+phone numbers -- that is, 10-digit phone numbers without country codes already present --
+with the +1 prefix. No other fields are modified in the process.
 
 You can upload the resulting .csv back to Google. Make sure to additionally
 click "Find and Merge contacts" through the UI. Google will overwrite the old phone numbers with the new ones and things should work fine.
