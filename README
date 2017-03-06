@@ -1,0 +1,22 @@
+Prefix American phone numbers from Google contacts with +1
+
+After I moved to Germany, I wanted to prefix the phone numbers of my American contacts
+with the +1 country code. Americans have 10-digit phone numbers XXX-XXX-XXXX, but I wanted +1 XXX-XXX-XXXX so that apps like WhatsApp would still automatically fill-in their names from Google contacts when I was not in America.
+
+This small script does that with your Google Contacts .csv file you can download
+from https://www.google.com/contacts/. Note that my .csv file was in UTF-16LE
+format, which I first converted as follows:
+
+   iconv -f UTF-16LE -t UTF-8 google.csv > google-utf8.csv
+
+Then, run the script:
+
+    go build
+    ./google-contacts-phone-prefixer google-utf8.csv > google-utf8-new.csv
+
+And voilà, google-utf8-new.csv now has all of your contacts who have American
+phone numbers with the +1 prefix.
+
+You can upload the resulting .csv back to Google. Make sure to additionally
+click "Find and Merge contacts" through the UI. Google will overwrite the old phone numbers with the new ones and things should work fine.
+
